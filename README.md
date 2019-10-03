@@ -2,8 +2,8 @@
 
 ## Available Extensions
 
-- [OWASP/ZAP on Azure](./Zap)
 - [CommentPRTask](./CommentPRTask)
+- [OWASP/ZAP on Azure](./Zap)
 
 ## Getting Help
 
