@@ -30,7 +30,7 @@ After installing the scanner from the Azure DevOps Marketplace, you will need to
 
 > A full-scan can be run by ticking the "Aggressive Scan Mode" checkbox. This scan doesn't have a time limit and does perform 'attacks.' It can run for a long time. Not ideally suited for CI, but is a useful tool for release-gates. ![aggressive-scan](https://raw.githubusercontent.com/microsoft/CSEDevOps/master/Zap/docs/images/zap-aggressive.png)
 
-- The "Failure Threshold" indicates the score for which the pipeline will begin to fail. The scoring mechanism built into this scanner is meant to be suggestive, and security personnel knowledgable about threat-models for the specific application should be engaged to adjust this value appropriately. The default of 50 is not meant to be suggestive as correct. The threshold is a simple aggregation of risk codes, confidences, and counts of vulnerabilities discovered by the scan.
+- The "Failure Threshold" indicates the score at which the pipeline will begin to fail. The scoring mechanism built into this scanner is meant to be suggestive, and security personnel knowledgable about threat-models for the specific application should be engaged to adjust this value appropriately. The default of 50 is only a starting point for incorporating the scanner and is not likely to be what works for your application! The ZAP scanner generates an HTML report (available in the Az DevOps build artifacts) that contains one entry per vulnerability discovered along with a confidence rating without any grouping. This approach does not provide a useful story from a developer perspective. The threshold sets out to provide a handy reference for improving the development workflow when considering vulnerability scanning. This limit is an aggregate score that first groups like vulnerabilities before applying the confidences, and total times a type of vulnerability appears to score the scan.
 
 - By default, that "Scan Type" used is "Scan on Agent." This type of scan is beneficial in pipelines for containerized applications. **This usage requires a preceding step to build your image and run it (detached) within the agent.**
 
@@ -41,6 +41,8 @@ After installing the scanner from the Azure DevOps Marketplace, you will need to
 - Finally, provide an optional port number for custom ports. By default, the scan will be interested in port 80 on the target system.
 
 ### Reporting
+
+The ZAP scanner includes several reporting options. None of which are optimal for use by development teams. However, we do provide several of these (HTML & JSON) as downloadable artifacts in the build. To make the scans more useful for development teams and get real feedback into the pipeline, we want a more helpful report of the scan results. Above, we discussed generating a threshold for scoring and failing a CI build. Below are some path(s) to reporting. The goal here is providing a flexible extension that can be reported on as appropriate for your project/team with some possible paths on getting even more value from the extensions.
 
 #### Install handlebars
 
