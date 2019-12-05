@@ -40,13 +40,32 @@ After installing the scanner from the Azure DevOps Marketplace, you will need to
 
 - Finally, provide an optional port number for custom ports. By default, the scan will be interested in port 80 on the target system.
 
-### Reporting
+### Reporting Options
+
+The extension generates 2 reports (report.html & report.json) that both contain the details of the results. These reports are in a directory "owaspzap" once the scanner completes. To be useful the report can be staged and published. For example the following tasks will attach these raw output files as build artifacts.
 
 The ZAP scanner includes several reporting options. None of which are optimal for use by development teams. However, we do provide several of these (HTML & JSON) as downloadable artifacts in the build. To make the scans more useful for development teams and get real feedback into the pipeline, we want a more helpful report of the scan results. Above, we discussed generating a threshold for scoring and failing a CI build. Below are some path(s) to reporting. The goal here is providing a flexible extension that can be reported on as appropriate for your project/team with some possible paths on getting even more value from the extensions.
 
+#### Publish Reports as Build Artifacts
+
+If you would like to publish the generated html & json reports as build artifacts you can use the copy and publish tasks available in Azure Devops!
+
+``` bash
+- task: CopyFiles@2
+  condition: always()
+  inputs:
+    SourceFolder: 'owaspzap/'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
+- task: PublishBuildArtifacts@1
+  condition: always()
+  inputs:
+    ArtifactName: 'owasp_zap_reports'
+```
+
 #### Install handlebars
 
-Take advantage of handlebars templating for a simple reporting dashboard/tab and generate the template to report from.
+Additionally, you can take advantage of handlebars templating for a simple reporting dashboard/tab and generate the template to report from.
 
 ```YAML
 - bash: |
@@ -133,3 +152,7 @@ You should now have 'test' tab on the pipeline build that displays useful infomr
 The list of failures (currently under "NUnit Test Run) are expandable links. Clicking on each will open details to the right which can guide the team to fixing the issues found.
 
 ![vulnerability drill-down](https://raw.githubusercontent.com/microsoft/CSEDevOps/master/Zap/docs/images/scan-results-drill-down.png)
+
+#### Other Reporting Options
+
+Other reporting options will be added to the extension. The HTML & JSON report will remain and offer the flexibility for parsing and publishing customer reports as above using the approach that works best for your team and project.
