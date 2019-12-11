@@ -10,7 +10,7 @@
 
 ### Prerequisite
 
-This task simplifies shifting security scanning of web applications into the DevOps pipeline in part by removing the requirement of having a running, exposed ZAP proxy before attempting the scan. By installing the proxy, you are enabling self-contained scans within your CI/CD pipeline. The core requirement for usage is a Docker install available to this task.
+This task simplifies shifting security scanning of web applications into the DevOps pipeline in part by removing the requirement of having a running, exposed ZAP proxy before attempting the scan. By installing the proxy, you are enabling self-contained scans within your CI/CD pipeline. The core requirement for usage is a Docker install available to this task which supports running Linux containers. The operating system of the host is otherwise irrelevant. When this requirement is not met, the task will fail with an error message of `image operating system "linux" cannot be used on this platform`.
 
 ### Configuration
 
