@@ -4,6 +4,7 @@
 
 - [CommentPRTask](./CommentPRTask)
 - [OWASP/ZAP on Azure](./Zap)
+- [PipelineRunnerExtension](./PipelineRunnerExtension)
 
 ## Getting Help
 
