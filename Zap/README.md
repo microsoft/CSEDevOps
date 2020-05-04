@@ -72,13 +72,12 @@ Additionally, you can take advantage of handlebars templating for a simple repor
    sudo npm install -g handlebars-cmd
 
    cat <<EOF > owaspzap/nunit-template.hbs
-   {{#each site}}
 
    <test-run
        id="2"
        name="Owasp test"
-       start-time="{{../[@generated]}}"  >
-       <test-suite
+       start-time="{{@generated}}">
+       {{#each site}}<test-suite
            id="{{@index}}"
            type="Assembly"
            name="{{[@name]}}"
@@ -86,15 +85,15 @@ Additionally, you can take advantage of handlebars templating for a simple repor
            failed="{{alerts.length}}">
            <attachments>
                <attachment>
-                   <filePath>owaspzap/report.html</filePath>
+                   <filePath>$BUILD_SOURCESDIRECTORY/owaspzap/report.html</filePath>
                </attachment>
            </attachments>
-       {{#each alerts}}<test-case
-           id="{{@index}}"
-           name="{{alert}}"
-           result="Failed"
-           fullname="{{alert}}"
-           time="1">
+           {{#each alerts}}<test-case
+               id="{{@index}}"
+               name="{{alert}}"
+               result="Failed"
+               fullname="{{alert}}"
+               time="1">
                <failure>
                    <message>
                        <![CDATA[{{{desc}}}]]>
@@ -114,11 +113,11 @@ Additionally, you can take advantage of handlebars templating for a simple repor
                        {{/each}}]]>
                    </stack-trace>
                </failure>
-       </test-case>
-       {{/each}}
+           </test-case>
+           {{/each}}
        </test-suite>
+       {{/each}}
    </test-run>
-   {{/each}}
    EOF
   displayName: 'owasp nunit template'
   condition: always()
