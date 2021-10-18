@@ -22,6 +22,8 @@ After installing the scanner from the Azure DevOps Marketplace, you will need to
 
 - By default, the task will run a baseline scan.
 
+- Custom configuration for ZAP may be provided through a "context file". This is ZAP functionality, and [is documented by the official project team](https://www.zaproxy.org/docs/desktop/start/features/contexts/).
+
 #### Baseline Scan Notes
 
 > The baseline scan will spider the target for 1 minute and then wait for the passive scanning to complete. This makes for a relatively short-running scan that doesn't perform any attacks.
@@ -37,6 +39,8 @@ After installing the scanner from the Azure DevOps Marketplace, you will need to
 - When running a full-scan in release-pipelines, or if your application is not containerized and has to run in a VM, "Scan Type" can be changed to "Targeted Scan." In this case, you are required to provide the schema and address for your target. Ex. <https://10.20.10.40> or <http://myWebSite.net>.
 
 > - By default, the scan will be performed without much effort at scoping for tech, excluded URL endpoints, etc.., but you can provide a context file for a more focused scan. The context file is useful to take full advantage of the baseline scans minute of crawling or, to narrow the scope of a full-scan in aggressive mode to keep the duration as short as possible. To accomplish this, check the "Provide Context File" box and provide the path to a context file in your source repository relative to the build copy of the source. ![context provided](https://raw.githubusercontent.com/microsoft/CSEDevOps/master/Zap/docs/images/zap-context-provided.png)
+
+- ZAP contexts and context files are not within the scope of our documentation. [Please refer to ZAP's official documentation, here.](https://www.zaproxy.org/docs/desktop/start/features/contexts/)
 
 - Finally, provide an optional port number for custom ports. By default, the scan will be interested in port 80 on the target system.
 
