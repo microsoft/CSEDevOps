@@ -1,6 +1,6 @@
 # Create PR Comment Task
 
-![Comment](https://raw.githubusercontent.com/microsoft/CSEDevOps/main/CreatePRCommentTask/docs/images/Comment.png)
+![Comment](https://raw.githubusercontent.com/microsoft/CSEDevOps/main/CreatePrComment/docs/images/Comment.png)
 
 Create a Pull Request comment if a CI is triggered by Pull Request.
 
@@ -10,11 +10,11 @@ Create a Pull Request comment if a CI is triggered by Pull Request.
 
 Install this extension to your project. Find the CreatePRCommentTask.
 
-![CreatePRCommentTask](https://raw.githubusercontent.com/microsoft/CSEDevOps/main/CreatePRCommentTask/docs/images/CreatePRCommentTask.png)
+![CreatePRCommentTask](https://raw.githubusercontent.com/microsoft/CSEDevOps/main/CreatePrComment/docs/images/CreatePRCommentTask.png)
 
 ### Details
 
-![Task details](https://raw.githubusercontent.com/microsoft/CSEDevOps/main/CreatePRCommentTask/docs/images/CommentTask.png)
+![Task details](https://raw.githubusercontent.com/microsoft/CSEDevOps/main/CreatePrComment/docs/images/CommentTask.png)
 
 | Name             | Description                                                                                      |
 | ---------------- | ------------------------------------------------------------------------------------------------ |
@@ -28,7 +28,7 @@ The comment becomes message body of your Pull Request Comment.
 
 Put your Azure DevOps Personal Access Token in `PAT`. The PAT requires permission to write Code. For more detail, [Pull Request Thread Comments - Create](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/pull-request-thread-comments/create?view=azure-devops-rest-6.1). `Connection name` is just a label of this service connection. `Server URL` is not used currently, however it might be good as memo which you use it for.
 
-![ServiceConnection](https://raw.githubusercontent.com/microsoft/CSEDevOps/main/CreatePRCommentTask/docs/images/ServiceConnection.png)
+![ServiceConnection](https://raw.githubusercontent.com/microsoft/CSEDevOps/main/CreatePrComment/docs/images/ServiceConnection.png)
 
 ### Example
 
@@ -40,4 +40,4 @@ CredScan reports a <a href="https://dev.azure.com/csedevops/DevSecOps/_workitems
 
 ## Contribution
 
-For more details [here](https://github.com/microsoft/CSEDevOps/blob/main/CreatePRCommentTask/CONTRIBUTION.md).
+For more details [here](https://github.com/microsoft/CSEDevOps/blob/main/CreatePrComment/CONTRIBUTION.md).

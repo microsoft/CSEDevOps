@@ -3,7 +3,7 @@
     "name": "CreatePRCommentTask",
     "friendlyName": "Create PR comment task",
     "description": "Create a Pull Request comment from pipeline",
-    "helpMarkDown": "[CreatePRCommentTask](https://github.com/microsoft/CSEDevOps/tree/main/CreatePRCommentTask)",
+    "helpMarkDown": "[CreatePrComment](https://github.com/microsoft/CSEDevOps/tree/main/CreatePrComment)",
     "category": "Utility",
     "author": "CSE-DevOps",
     "preview": true,

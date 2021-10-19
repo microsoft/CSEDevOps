@@ -43,22 +43,22 @@
     ],
     "links": {
         "home": {
-          "uri": "https://github.com/microsoft/CSEDevOps/tree/main/CreatePRCommentTask"
+          "uri": "https://github.com/microsoft/CSEDevOps/tree/main/CreatePrComment"
         },
         "getstarted": {
-          "uri": "https://github.com/microsoft/CSEDevOps/blob/main/CreatePRCommentTask/README.md"
+          "uri": "https://github.com/microsoft/CSEDevOps/blob/main/CreatePrComment/README.md"
         },
         "learn": {
-          "uri": "https://github.com/microsoft/CSEDevOps/blob/main/CreatePRCommentTask/README.md"
+          "uri": "https://github.com/microsoft/CSEDevOps/blob/main/CreatePrComment/README.md"
         },
         "support": {
-          "uri": "https://github.com/microsoft/CSEDevOps/discussions/categories/createprcommenttask"
+          "uri": "https://github.com/microsoft/CSEDevOps/discussions/categories/createprcomment"
         },
         "repository": {
-          "uri": "https://github.com/microsoft/CSEDevOps/tree/main/CreatePRCommentTask"
+          "uri": "https://github.com/microsoft/CSEDevOps/tree/main/CreatePrComment"
         },
         "issues": {
-          "uri": "https://github.com/microsoft/CSEDevOps/issues?q=is%3Aissue+label%3ACreatePRCommentTask"
+          "uri": "https://github.com/microsoft/CSEDevOps/issues?q=is:issue+is:open+label:CreatePrComment"
         }
       },
     "repository": {
