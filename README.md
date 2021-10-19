@@ -1,4 +1,4 @@
-# CSEDevOps Extensions
+# CSE DevOps Extensions
 
 ## Available Extensions
 
