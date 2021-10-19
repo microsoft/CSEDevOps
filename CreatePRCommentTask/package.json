@@ -1,0 +1,60 @@
+{
+  "name": "create-pr-comment-task",
+  "version": "1.0.0",
+  "description": "Create a comment on a pull request",
+  "main": "task.js",
+  "scripts": {
+    "deps": "rimraf ./node_modules && npm install",
+    "build": "rimraf ./.bin && tsc -p .",
+    "start": "copyfiles -f ./Task/CreatePRCommentTaskV1/task.json ./Src && ts-node ./Src/task.ts && rimraf ./Src/task.json",
+    "pack": "rimraf ./.dist && copyfiles vss-extension.json LICENSE.md README.md \"./Task/**\" \"./images/**\" ./.dist && copyfiles -f package.json \"./.bin/*.js\" \"./.bin/**/*.js\" -e \"./.bin/Test/*\" ./.dist/Task/CreatePRCommentTaskV0 && copyfiles -f package.json \"./.bin/*.js\" \"./.bin/**/*.js\" -e \"./.bin/Test/*\" ./.dist/Task/CreatePRCommentTaskV1 && loop \"npm install --only=prod\" --cwd ./.dist/Task",
+    "create": "tfx extension create -r ./.dist",
+    "createdev": "tfx extension create --rev-version --root ./.dist --publisher daporo-dev",
+    "test": "tsc -p . && copyfiles -f ./Task/CreatePRCommentTaskV1/task.json ./.bin/Src && nyc mocha ./.bin/Test/L0.js",
+    "report": "tsc -p . && mocha ./.bin/Test/L0.js --reporter mocha-junit-reporter && nyc report",
+    "lint": "ts-standard",
+    "lintfix": "ts-standard --fix"
+  },
+  "nyc": {
+    "extension": [
+      ".ts"
+    ],
+    "include": [
+      "Src"
+    ],
+    "reporter": [
+      "text",
+      "cobertura",
+      "html"
+    ],
+    "report-dir": "./.coverage_output/coverage",
+    "all": "true",
+    "check-coverage": true,
+    "statements": 70,
+    "functions": 70,
+    "branches": 70,
+    "lines": 70
+  },
+  "author": "CSE-DevOps",
+  "license": "MIT",
+  "dependencies": {
+    "azure-devops-node-api": "^11.0.1",
+    "azure-pipelines-task-lib": "^3.1.10"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.2.22",
+    "@types/mocha": "^9.0.0",
+    "@types/node": "^16.11.1",
+    "@types/q": "^1.5.5",
+    "@types/sinon": "^10.0.4",
+    "chai": "^4.3.4",
+    "mocha": "^9.1.3",
+    "mocha-junit-reporter": "^2.0.2",
+    "nyc": "^15.1.0",
+    "rewiremock": "^3.14.3",
+    "sinon": "^11.1.2",
+    "source-map-support": "^0.5.20",
+    "tfx-cli": "^0.9.3",
+    "ts-node": "^10.3.0"
+  }
+}

@@ -1,0 +1,40 @@
+{
+    "id": "0fef745c-60e7-4f36-8541-e4d9ce6729b1",
+    "name": "CreatePRCommentTask",
+    "friendlyName": "Create PR comment task",
+    "description": "Create a Pull Request comment from pipeline",
+    "helpMarkDown": "[CreatePRCommentTask](https://github.com/microsoft/CSEDevOps/tree/main/CreatePRCommentTask)",
+    "category": "Utility",
+    "author": "CSE-DevOps",
+    "preview": true,
+    "version": {
+        "Major": 0,
+        "Minor": 1,
+        "Patch": 15
+    },
+    "instanceNameFormat": "Create PR Comment",
+    "inputs": [
+        {
+            "name": "AzureDevOpsService",
+            "type": "connectedService:azuredevops",
+            "label": "Azure DevOps PAT",
+            "required": true,
+            "helpMarkDown": "Select the Azure DevOps PAT"
+        },
+        {
+            "name": "Comment",
+            "type": "multiLine",
+            "label": "Comment",
+            "required": true,
+            "helpMarkDown": "Comment which is created as an Pull Request comment"
+        }
+    ],
+    "execution": {
+        "Node10": {
+            "target": "task.js"
+        }
+    },
+    "messages": {
+        "FailToCreateComment": "Failed to create a comment. For more details: %s"
+    }
+}

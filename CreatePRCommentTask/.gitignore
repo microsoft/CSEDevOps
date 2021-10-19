@@ -1,0 +1,11 @@
+node_modules
+*.js
+*.vsix
+*.map
+.vscode
+test-results.xml
+.nyc_output
+.coverage_output
+.bin
+.dist
+.taskkey
