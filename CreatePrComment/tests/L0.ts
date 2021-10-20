@@ -3,10 +3,7 @@ import * as sinon from 'sinon'
 import rewiremock from 'rewiremock'
 import { should as Should, expect } from 'chai'
 import { IGitApi, GitApi } from 'azure-devops-node-api/GitApi'
-
 import * as GitInterfaces from 'azure-devops-node-api/interfaces/GitInterfaces'
-
-import { IClientFactory, CreatePRCommentTask } from '../src/task'
 
 var should = Should()
 
@@ -24,6 +21,8 @@ rewiremock('azure-pipelines-task-lib')
   })
 
 rewiremock.enable()
+
+import { IClientFactory, CreatePRCommentTask } from '../src/task'
 
 class ClientFactoryMock implements IClientFactory {
   called: boolean = false
@@ -55,7 +54,7 @@ class ClientFactoryMock implements IClientFactory {
   }
 }
 
-describe('CommentPRTask Test', function () {
+describe('CreatePRCommentTaskV0 Tests', function () {
   it('run all inputs function', async () => {
     const factoryMock: IClientFactory = new ClientFactoryMock()
     variables['Build.Repository.ID'] = '3'
