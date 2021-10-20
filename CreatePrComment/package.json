@@ -4,6 +4,7 @@
   "description": "Create a comment on a Pull Request",
   "main": "task.js",
   "scripts": {
+    "clean": "rimraf ./.bin && rimraf ./.dist && rimraf ./*.vsix",
     "deps": "rimraf ./node_modules && npm install",
     "build": "rimraf ./.bin && tsc -p .",
     "start": "copyfiles -f ./task/CreatePRCommentTaskV1/task.json ./src && ts-node ./src/task.ts && rimraf ./src/task.json",
