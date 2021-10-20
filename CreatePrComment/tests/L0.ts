@@ -6,7 +6,7 @@ import { IGitApi, GitApi } from 'azure-devops-node-api/GitApi'
 
 import * as GitInterfaces from 'azure-devops-node-api/interfaces/GitInterfaces'
 
-import { IClientFactory, CreatePRCommentTask } from '../Src/task'
+import { IClientFactory, CreatePRCommentTask } from '../src/task'
 
 var should = Should()
 

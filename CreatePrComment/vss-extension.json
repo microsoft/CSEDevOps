@@ -38,7 +38,7 @@
     },
     "files": [
         {
-            "path": "Task"
+            "path": "task"
         }
     ],
     "links": {
@@ -109,7 +109,7 @@
                 "ms.vss-distributed-task.tasks"
             ],
             "properties": {
-                "name": "Task"
+                "name": "task"
             }
         }
     ]

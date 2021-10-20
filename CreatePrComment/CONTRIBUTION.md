@@ -28,7 +28,7 @@ npm run build
 
 ### Pack
 
-Compile and Pack the code to the Task directory
+Compile and Pack the code to the task directory
 
 ```shell
 npm run pack

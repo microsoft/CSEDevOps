@@ -6,12 +6,12 @@
   "scripts": {
     "deps": "rimraf ./node_modules && npm install",
     "build": "rimraf ./.bin && tsc -p .",
-    "start": "copyfiles -f ./Task/CreatePRCommentTaskV1/task.json ./Src && ts-node ./Src/task.ts && rimraf ./Src/task.json",
-    "pack": "rimraf ./.dist && copyfiles vss-extension.json LICENSE.md README.md \"./Task/**\" \"./images/**\" ./.dist && copyfiles -f package.json \"./.bin/*.js\" \"./.bin/**/*.js\" -e \"./.bin/Test/*\" ./.dist/Task/CreatePRCommentTaskV0 && copyfiles -f package.json \"./.bin/*.js\" \"./.bin/**/*.js\" -e \"./.bin/Test/*\" ./.dist/Task/CreatePRCommentTaskV1 && loop \"npm install --only=prod\" --cwd ./.dist/Task",
+    "start": "copyfiles -f ./task/CreatePRCommentTaskV1/task.json ./src && ts-node ./src/task.ts && rimraf ./src/task.json",
+    "pack": "rimraf ./.dist && copyfiles vss-extension.json LICENSE.md README.md \"./task/**\" \"./images/**\" ./.dist && copyfiles -f package.json \"./.bin/*.js\" \"./.bin/**/*.js\" -e \"./.bin/tests/*\" ./.dist/task/CreatePRCommentTaskV0 && copyfiles -f package.json \"./.bin/*.js\" \"./.bin/**/*.js\" -e \"./.bin/tests/*\" ./.dist/task/CreatePRCommentTaskV1 && loop \"npm install --only=prod\" --cwd ./.dist/task",
     "create": "tfx extension create -r ./.dist",
     "createdev": "tfx extension create --rev-version --root ./.dist --publisher daporo-dev",
-    "test": "tsc -p . && copyfiles -f ./Task/CreatePRCommentTaskV1/task.json ./.bin/Src && nyc mocha ./.bin/Test/L0.js",
-    "report": "tsc -p . && mocha ./.bin/Test/L0.js --reporter mocha-junit-reporter && nyc report",
+    "test": "tsc -p . && copyfiles -f ./task/CreatePRCommentTaskV1/task.json ./.bin/src && nyc mocha ./.bin/tests/L0.js",
+    "report": "tsc -p . && mocha ./.bin/tests/L0.js --reporter mocha-junit-reporter && nyc report",
     "lint": "ts-standard",
     "lintfix": "ts-standard --fix"
   },
@@ -20,7 +20,7 @@
       ".ts"
     ],
     "include": [
-      "Src"
+      "src"
     ],
     "reporter": [
       "text",
