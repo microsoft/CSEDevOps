@@ -1,13 +1,13 @@
 {
   "name": "create-pr-comment-task",
   "version": "1.0.0",
-  "description": "Create a comment on a pull request",
+  "description": "Create a comment on a Pull Request",
   "main": "task.js",
   "scripts": {
     "deps": "rimraf ./node_modules && npm install",
     "build": "rimraf ./.bin && tsc -p .",
     "start": "copyfiles -f ./task/CreatePRCommentTaskV1/task.json ./src && ts-node ./src/task.ts && rimraf ./src/task.json",
-    "pack": "rimraf ./.dist && copyfiles vss-extension.json LICENSE.md README.md \"./task/**\" \"./images/**\" ./.dist && copyfiles -f package.json \"./.bin/*.js\" \"./.bin/**/*.js\" -e \"./.bin/tests/*\" ./.dist/task/CreatePRCommentTaskV0 && copyfiles -f package.json \"./.bin/*.js\" \"./.bin/**/*.js\" -e \"./.bin/tests/*\" ./.dist/task/CreatePRCommentTaskV1 && loop \"npm install --only=prod\" --cwd ./.dist/task",
+    "pack": "rimraf ./.dist && copyfiles vss-extension.json vss-extension-icon.png LICENSE.md README.md \"./task/**\" ./.dist && copyfiles -f package.json \"./.bin/*.js\" \"./.bin/**/*.js\" -e \"./.bin/tests/*\" ./.dist/task/CreatePRCommentTaskV0 && copyfiles -f package.json \"./.bin/*.js\" \"./.bin/**/*.js\" -e \"./.bin/tests/*\" ./.dist/task/CreatePRCommentTaskV1 && loop \"npm install --only=prod\" --cwd ./.dist/task",
     "create": "tfx extension create -r ./.dist",
     "createdev": "tfx extension create --rev-version --root ./.dist --publisher daporo-dev",
     "test": "tsc -p . && copyfiles -f ./task/CreatePRCommentTaskV1/task.json ./.bin/src && nyc mocha ./.bin/tests/L0.js",
@@ -35,8 +35,24 @@
     "branches": 70,
     "lines": 70
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/microsoft/CSEDevOps.git"
+  },
+  "keywords": [
+    "Pull Request",
+    "PR",
+    "PR Comment",
+    "Utility task",
+    "Utility",
+    "Azure Pipelines"
+  ],
   "author": "CSE-DevOps",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/microsoft/CSEDevOps/issues?q=is:issue+label:CreatePrComment"
+  },
+  "homepage": "https://github.com/microsoft/CSEDevOps/tree/main/CreatePrComment",
   "dependencies": {
     "azure-devops-node-api": "^11.0.1",
     "azure-pipelines-task-lib": "^3.1.10"
@@ -48,13 +64,17 @@
     "@types/q": "^1.5.5",
     "@types/sinon": "^10.0.4",
     "chai": "^4.3.4",
+    "copyfiles": "^2.4.1",
+    "loop": "^3.3.6",
     "mocha": "^9.1.3",
     "mocha-junit-reporter": "^2.0.2",
     "nyc": "^15.1.0",
     "rewiremock": "^3.14.3",
+    "rimraf": "^3.0.2",
     "sinon": "^11.1.2",
     "source-map-support": "^0.5.20",
     "tfx-cli": "^0.9.3",
-    "ts-node": "^10.3.0"
+    "ts-node": "^10.3.0",
+    "typescript": "^4.4.4"
   }
 }

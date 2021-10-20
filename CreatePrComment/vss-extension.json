@@ -34,7 +34,7 @@
         }
     },
     "icons": {
-        "default": "images/extension-icon.png"
+        "default": "vss-extension-icon.png"
     },
     "files": [
         {
@@ -58,7 +58,10 @@
           "uri": "https://github.com/microsoft/CSEDevOps/tree/main/CreatePrComment"
         },
         "issues": {
-          "uri": "https://github.com/microsoft/CSEDevOps/issues?q=is:issue+is:open+label:CreatePrComment"
+          "uri": "https://github.com/microsoft/CSEDevOps/issues?q=is:issue+label:CreatePrComment"
+        },
+        "license": {
+            "uri": "https://github.com/microsoft/CSEDevOps/blob/main/CreatePrComment/LICENSE.md"
         }
       },
     "repository": {
