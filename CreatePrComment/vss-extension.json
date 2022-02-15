@@ -1,0 +1,119 @@
+{
+    "manifestVersion": 1,
+    "id": "create-pr-comment-task",
+    "name": "Create Pull Request Comment",
+    "publisher": "CSE-DevOps",
+    "version": "0.1.0",
+    "galleryFlags": [
+        "Public",
+        "Preview"
+    ],
+    "targets": [
+        {
+            "id": "Microsoft.VisualStudio.Services"
+        }
+    ],
+    "description": "Create Pull Request Comment",
+    "categories": [
+        "Azure Pipelines"
+    ],
+    "tags": [
+        "Pull Request",
+        "PR",
+        "PR Comment",
+        "Utility task",
+        "Utility",
+        "Azure Pipelines"
+    ],
+    "content": {
+        "details": {
+            "path": "README.md"
+        },
+        "license": {
+          "path": "LICENSE.md"
+        }
+    },
+    "icons": {
+        "default": "vss-extension-icon.png"
+    },
+    "files": [
+        {
+            "path": "task"
+        }
+    ],
+    "links": {
+        "home": {
+          "uri": "https://github.com/microsoft/CSEDevOps/tree/main/CreatePrComment"
+        },
+        "getstarted": {
+          "uri": "https://github.com/microsoft/CSEDevOps/blob/main/CreatePrComment/README.md"
+        },
+        "learn": {
+          "uri": "https://github.com/microsoft/CSEDevOps/blob/main/CreatePrComment/README.md"
+        },
+        "support": {
+          "uri": "https://github.com/microsoft/CSEDevOps/discussions/categories/createprcomment"
+        },
+        "repository": {
+          "uri": "https://github.com/microsoft/CSEDevOps/tree/main/CreatePrComment"
+        },
+        "issues": {
+          "uri": "https://github.com/microsoft/CSEDevOps/issues?q=is:issue+label:CreatePrComment"
+        },
+        "license": {
+            "uri": "https://github.com/microsoft/CSEDevOps/blob/main/CreatePrComment/LICENSE.md"
+        }
+      },
+    "repository": {
+        "type": "git",
+        "uri": "https://github.com/microsoft/CSEDevOps"
+    },
+    "contributions": [
+        {
+            "id": "service-endpoint",
+            "description": "Service Endpoint type for Azure DevOps PAT",
+            "type": "ms.vss-endpoint.service-endpoint-type",
+            "targets": [
+                "ms.vss-endpoint.endpoint-types"
+            ],
+            "properties": {
+                "name": "azuredevops",
+                "displayName": "CreatePRCommentTaskV0 Azure DevOps PAT",
+                "config": {
+                    "type": "string",
+                    "description": "Put your Personal Access Token of the Azure DevOps",
+                    "required": true
+                },
+                "authenticationSchemes": [
+                    {
+                        "type": "ms.vss-endpoint.endpoint-auth-scheme-none",
+                        "inputDescriptors": [
+                            {
+                                "id": "pat",
+                                "name": "PAT",
+                                "description": "Azure DevOps Personal Access Token here.",
+                                "inputMode": "passwordbox",
+                                "isConfidential": true,
+                                "validation": {
+                                    "isRequired": true,
+                                    "dataType": "string"
+                                }
+                            }
+                        ]
+                    }
+                ],
+                "helpMarkDown": "Create a Pull Request Comment."
+            }
+        },
+        {
+            "id": "custom-build-release-task",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "task"
+            }
+        }
+    ]
+}
