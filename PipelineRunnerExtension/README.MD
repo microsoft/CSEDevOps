@@ -20,25 +20,25 @@ At runtime the Build Task uses the Azure Pipelines CLI to trigger and monitor pi
 
 1. Create a Service Connection
 
-    ![Create/Configure Service Connection](https://raw.githubusercontent.com/microsoft/CSEDevOps/master/PipelineRunnerExtension/images/screenshot-2.png)
+    ![Create/Configure Service Connection](https://raw.githubusercontent.com/microsoft/CSEDevOps/main/PipelineRunnerExtension/images/screenshot-2.png)
 
 2. Configure Build Task Properties/Fields
 
     Configure the task with the required properties to trigger your builds. The Pipeline task can be added to you Parent Pipeline multiple times but will require that you set a unique CustomPrefix per instance in order to correctly separate build artifacts and summary reports as depicted in the following numbered list.
 
-    ![Configure Pipeline Properties](https://raw.githubusercontent.com/microsoft/CSEDevOps/master/PipelineRunnerExtension/images/screenshot-1.png)
+    ![Configure Pipeline Properties](https://raw.githubusercontent.com/microsoft/CSEDevOps/main/PipelineRunnerExtension/images/screenshot-1.png)
 
 3. Review Pipeline Summary Report
 
     For each instance of the Build Task that is configured a Summary Report will be displayed using the CustomPrefix provided during the task configuration. It will list the builds that it executed as well as it's final status, either **Succeeded/Failed** with a clickable link to the build results page for easy referencing.
 
-    ![Review Report](https://raw.githubusercontent.com/microsoft/CSEDevOps/master/PipelineRunnerExtension/images/screenshot-3.png)
+    ![Review Report](https://raw.githubusercontent.com/microsoft/CSEDevOps/main/PipelineRunnerExtension/images/screenshot-3.png)
 
 4. Review Artifacts
 
     If the triggered builds produce artifacts and you have configured the task to download artifacts the artifacts will be consolidated in a single published artifact, organized by BuildID of the delegate builds. If the task is added to your Parent Pipeline multiple times, the artifacts will be published using the unique CustomPrefix that you have configured per instance as a grouping mechanism.
 
-    ![Review Artifacts](https://raw.githubusercontent.com/microsoft/CSEDevOps/master/PipelineRunnerExtension/images/screenshot-4.png)
+    ![Review Artifacts](https://raw.githubusercontent.com/microsoft/CSEDevOps/main/PipelineRunnerExtension/images/screenshot-4.png)
 
 ## Task Fields
 
@@ -50,8 +50,8 @@ Inputs:
 - **Project**: Project in which the Build Definitions can be found
 - **Folder Path**: Folder location where Build Definitions are stored as an organizational unit
 - **Build Definition**: The Name of the Build that you wish to trigger
-- **Set Branch**: Boolean property which enables a field that allows you to pick define a branch against which the triggered pipeline must run. If not selected the pipeline will be run against the master branch
-- **Branch**: Set the branch that the triggered pipeline must target. If left blank defaults to master
+- **Set Branch**: Boolean property which enables a field that allows you to pick define a branch against which the triggered pipeline must run. If not selected the pipeline will be run against the main branch
+- **Branch**: Set the branch that the triggered pipeline must target. If left blank defaults to main
 - **Parameter Source**: 'inline'/ 'filepath' allows build parameters to be passed from a file or inline
 - **Build Variables**: Sample Json Array '[{"Var1":"hello","Var2":"world" },{"Var1":"Bye","Var2":"world" }]' in the preceding example the delegate pipeline will be executed twice one for each **element {}** and in each case the variables **Var1** and **Var2** will be passed to the Pipeline being executed as variables
 - **Custom Prefix**: Must be set to a unique string value if the Build Task is added to Parent Pipeline more than once
