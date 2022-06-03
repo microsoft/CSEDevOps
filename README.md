@@ -1,10 +1,10 @@
-# CSEDevOps Extensions
+# CSE DevOps Extensions
 
 ## Available Extensions
 
-- [CommentPRTask](./CommentPRTask)
-- [OWASP/ZAP on Azure](./Zap)
-- [PipelineRunnerExtension](./PipelineRunnerExtension)
+- [Create Pull Request Comment](./CreatePrComment)
+- [OWASP ZAP Scanner](./Zap)
+- [Configurable Pipeline Runner](./PipelineRunnerExtension)
 
 ## Getting Help
 
