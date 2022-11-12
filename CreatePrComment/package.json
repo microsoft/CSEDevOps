@@ -56,7 +56,7 @@
   "homepage": "https://github.com/microsoft/CSEDevOps/tree/main/CreatePrComment",
   "dependencies": {
     "azure-devops-node-api": "^11.1.0",
-    "azure-pipelines-task-lib": "^3.1.10"
+    "azure-pipelines-task-lib": "^3.3.1"
   },
   "devDependencies": {
     "@types/chai": "^4.3.0",
@@ -67,7 +67,7 @@
     "chai": "^4.3.6",
     "copyfiles": "^2.4.1",
     "loop": "^3.3.6",
-    "mocha": "^9.2.0",
+    "mocha": "^9.2.2",
     "mocha-junit-reporter": "^2.0.2",
     "nyc": "^15.1.0",
     "rewiremock": "^3.14.3",
